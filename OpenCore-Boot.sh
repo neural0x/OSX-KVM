@@ -33,7 +33,8 @@ OVMF_DIR="."
 
 # shellcheck disable=SC2054
 args=(
-  -enable-kvm -m "$ALLOCATED_RAM" -cpu Penryn,kvm=on,vendor=GenuineIntel,+invtsc,vmware-cpuid-freq=on,"$MY_OPTIONS"
+  # -enable-kvm -m "$ALLOCATED_RAM" -cpu Penryn,kvm=on,vendor=GenuineIntel,+invtsc,vmware-cpuid-freq=on,"$MY_OPTIONS"
+  -enable-kvm -m "$ALLOCATED_RAM" -cpu Skylake-Client,-hle,-rtm,kvm=on,vendor=GenuineIntel,+invtsc,vmware-cpuid-freq=on,"$MY_OPTIONS"  # ATTENTION: Enable this line for macOS Sequoia and Tahoe
   -machine q35
   -device qemu-xhci,id=xhci
   -device usb-kbd,bus=xhci.0 -device usb-tablet,bus=xhci.0
@@ -47,7 +48,7 @@ args=(
   # -device usb-host,vendorid=0x8086,productid=0x0808  # 2 USD USB Sound Card
   # -device usb-host,vendorid=0x1b3f,productid=0x2008  # Another 2 USD USB Sound Card
   -device isa-applesmc,osk="ourhardworkbythesewordsguardedpleasedontsteal(c)AppleComputerInc"
-  -drive if=pflash,format=raw,readonly=on,file="$REPO_PATH/$OVMF_DIR/OVMF_CODE.fd"
+  -drive if=pflash,format=raw,readonly=on,file="$REPO_PATH/$OVMF_DIR/OVMF_CODE_4M.fd"
   -drive if=pflash,format=raw,file="$REPO_PATH/$OVMF_DIR/OVMF_VARS-1920x1080.fd"
   -smbios type=2
   -device ich9-intel-hda -device hda-duplex
