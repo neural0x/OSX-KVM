@@ -166,7 +166,7 @@
 
 -以此类推，安装 macOS 🙌
 
-原来的 `OpenCore-Boot.sh` 脚本有点旧，已被 'OpenCore-Boot-new.sh' 取代。新脚本已在 AMD Ryzen 9 7955HX 和 Ubuntu 24.04 上测试通过，截图如下。
+'OpenCore-Boot-new.sh' 新脚本已在 AMD Ryzen 9 7955HX 和 Ubuntu 24.04 上测试通过，截图如下。
 
 ![](./screenshots/osx-kvm-amd.png)
 

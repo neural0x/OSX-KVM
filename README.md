@@ -184,7 +184,7 @@ processors work just fine (even for macOS Tahoe).
 
 - Go ahead, and install macOS 🙌
 
-The original `OpenCore-Boot.sh` script is a bit old and has been replaced by 'OpenCore-Boot-new.sh'. The new script is tested on AMD Ryzen 9 7955HX with Ubuntu 24.04 as screen shot below.
+ 'OpenCore-Boot-new.sh' is tested on AMD Ryzen 9 7955HX with Ubuntu 24.04 as screen shot below.
 
 ![](./screenshots/osx-kvm-amd.png)
 
