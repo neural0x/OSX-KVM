@@ -64,7 +64,13 @@ args=(
   -netdev user,id=net0,hostfwd=tcp::2222-:22 -device virtio-net-pci,netdev=net0,id=net0,mac=52:54:00:c9:18:27
   # -netdev user,id=net0 -device vmxnet3,netdev=net0,id=net0,mac=52:54:00:c9:18:27  # Note: Use this line for High Sierra
   -monitor stdio
-  -device vmware-svga
+  -device qxl-vga,id=video0,ram_size=67108864,vram_size=67108864,vram64_size_mb=0,vgamem_mb=16,max_outputs=1 \
+  -spice port=5900,addr=127.0.0.1,disable-ticketing=on \
+  #-device vfio-pci,host=01:00.0,id=video0,bus=pcie.0,multifunction=on \
+  #-device vfio-pci,host=01:00.1,id=audio0,bus=pcie.0 \
+  -device virtio-serial-pci \
+  -device virtserialport,chardev=spicechannel0,name=com.redhat.spice.0 \
+  -chardev spicevmc,id=spicechannel0,name=vdagent \
   # -spice port=5900,addr=127.0.0.1,disable-ticketing=on
 )
 
